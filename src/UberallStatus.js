@@ -1,9 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
-import Header from "./UI/Header";
-import SearchForm from "./UI/SearchForm";
-import searchBusiness from "./actions/businessActions";
-import getListing from "./actions/listingActions";
+import styled from "styled-components";
+import { SearchForm, BusinessCard, Header } from "./UI";
+import { searchBusiness, getListing } from "./actions";
+
+const Padded = styled.div`
+  padding: 2.5rem 5rem;
+`;
 
 class UberallStatus extends React.Component {
   handleSearchSubmit = searchObj => {
@@ -19,9 +22,10 @@ class UberallStatus extends React.Component {
     return (
       <>
         <Header />
-        <SearchForm handleSearchSubmit={this.handleSearchSubmit} />
-        <p>Awesomeness is about to happen! Stay Tuned :)</p>
-        {business.id}
+        <Padded>
+          <SearchForm handleSearchSubmit={this.handleSearchSubmit} />
+          {business.id && <BusinessCard business={business} />}
+        </Padded>
       </>
     );
   }
