@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Icon } from "antd";
 
 const HeaderStyled = styled.header`
   position: relative;
@@ -48,6 +49,15 @@ const HeaderStyled = styled.header`
       }
     }
   }
+
+  .anticon-down {
+    position: absolute;
+    font-size: 3rem;
+    color: white;
+    left: 50%;
+    transform: translate(-50%, 0);
+    animation: MoveUpDown 2s linear infinite;
+  }
 `;
 
 const Header = () => {
@@ -59,6 +69,7 @@ const Header = () => {
         <h1>Uberall</h1>
         <h2>Status Check</h2>
       </div>
+      <Icon type="down" />
     </HeaderStyled>
   );
 };
