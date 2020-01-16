@@ -2,6 +2,7 @@ import React from "react";
 import { Descriptions, Card } from "antd";
 import styled from "styled-components";
 import ListingCard from "../ListingCard";
+import countryMapperService from "../../service/countryMapperService";
 var moment = require("moment");
 
 const Padded = styled.div`
@@ -25,7 +26,9 @@ const BusinessInfo = ({
     <Descriptions.Item label="Street">{street}</Descriptions.Item>
     <Descriptions.Item label="Street number">{streetNo}</Descriptions.Item>
     <Descriptions.Item label="City">{city}</Descriptions.Item>
-    <Descriptions.Item label="Country">{country}</Descriptions.Item>
+    <Descriptions.Item label="Country">
+      {countryMapperService.getCountryName(country)}
+    </Descriptions.Item>
     <Descriptions.Item label="Province">{province}</Descriptions.Item>
     <Descriptions.Item label="ZIP">{zip}</Descriptions.Item>
   </Descriptions>
