@@ -16,7 +16,7 @@ export default function listingReducer(state = initialState, action) {
       return {
         ...state,
         loading: false,
-        listings: [...state.listings, action.payload.data.response]
+        listings: action.payload
       };
     case LISTING_ACTIONS.LISTING_FAILURE:
       return {

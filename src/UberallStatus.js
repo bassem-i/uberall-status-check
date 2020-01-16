@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import styled from "styled-components";
 import { SearchForm, BusinessCard, Header } from "./UI";
-import { searchBusiness, getListing } from "./actions";
+import { searchBusiness } from "./actions";
 
 const Padded = styled.div`
   padding: 2.5rem 5rem;
@@ -32,9 +32,8 @@ class UberallStatus extends React.Component {
 }
 
 export default connect(
-  ({ businessReducer, listingReducer }) => ({
-    businessReducer,
-    listingReducer
+  ({ businessReducer }) => ({
+    businessReducer
   }),
-  { searchBusiness, getListing }
+  { searchBusiness }
 )(UberallStatus);
