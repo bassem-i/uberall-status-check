@@ -6,7 +6,11 @@ import { SearchForm, BusinessCard, Header } from "./UI";
 import { searchBusiness } from "./actions";
 
 const Padded = styled.div`
-  padding: 2.5rem 5rem;
+  padding: 0.25rem 0.5rem;
+
+  @media only screen and (min-width: 1024px) {
+    padding: 2.5rem 5rem;
+  }
 `;
 
 class UberallStatus extends React.Component {

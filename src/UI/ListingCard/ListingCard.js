@@ -4,7 +4,7 @@ import { Descriptions } from "antd";
 var moment = require("moment");
 
 const Card = styled.div`
-  margin: 2rem 0;
+  margin: 1rem 0;
 `;
 const Redspan = styled.span`
   color: red;
@@ -27,8 +27,8 @@ const ListingCard = ({
   syncStatus
 }) => (
   <Card>
-    <Descriptions bordered column={2}>
-      <Descriptions.Item label="Directory Type" span={2}>
+    <Descriptions bordered column={{ xs: 1, md: 2 }} size="small">
+      <Descriptions.Item label="Directory Type">
         {isValue(directoryType)}
       </Descriptions.Item>
       <Descriptions.Item label="Name">{isValue(name)}</Descriptions.Item>
@@ -38,7 +38,7 @@ const ListingCard = ({
       <Descriptions.Item label="Date Created">
         {moment(dateCreated).format("YYYY-M-D")}
       </Descriptions.Item>
-      <Descriptions.Item label="Sync Status" span={2}>
+      <Descriptions.Item label="Sync Status">
         {isValue(syncStatus)}
       </Descriptions.Item>
     </Descriptions>

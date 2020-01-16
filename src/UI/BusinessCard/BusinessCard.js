@@ -6,7 +6,9 @@ import countryMapperService from "../../service/countryMapperService";
 var moment = require("moment");
 
 const Padded = styled.div`
-  padding: 0 2rem;
+  @media only screen and (min-width: 1024px) {
+    padding: 0 2rem;
+  }
 `;
 const BusinessInfo = ({
   name,
@@ -18,7 +20,7 @@ const BusinessInfo = ({
   province,
   zip
 }) => (
-  <Descriptions bordered column={2}>
+  <Descriptions bordered column={{ xs: 1, md: 2 }} size="small">
     <Descriptions.Item label="Name">{name}</Descriptions.Item>
     <Descriptions.Item label="Date">
       {moment(dateCreated).format("YYYY-M-D")}

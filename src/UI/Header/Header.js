@@ -31,10 +31,21 @@ const HeaderStyled = styled.header`
     }
 
     h1 {
-      font-size: 7rem;
+      font-size: 3rem;
     }
     h2 {
-      font-size: 5rem;
+      font-size: 1rem;
+    }
+  }
+
+  @media only screen and (min-width: 1024px) {
+    .splash-content {
+      h1 {
+        font-size: 7rem;
+      }
+      h2 {
+        font-size: 5rem;
+      }
     }
   }
 `;
