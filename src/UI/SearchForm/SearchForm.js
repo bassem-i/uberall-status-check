@@ -12,6 +12,14 @@ class SearchForm extends React.Component {
   componentDidMount() {
     // validateFields disable the submit btn on mount
     this.props.form.validateFields();
+
+    // Development mode only!
+    this.props.form.setFieldsValue({
+      country: "DE",
+      name: "Einstein Cafe",
+      street: "Unter den linden 42",
+      zip: "10117"
+    });
   }
 
   handleSubmit = e => {

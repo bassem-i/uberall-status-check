@@ -1,30 +1,36 @@
 import React from "react";
+import { connect } from "react-redux";
 import Header from "./UI/Header";
 import SearchForm from "./UI/SearchForm";
-import uberallApiService from "./service/uberallApiService";
+import searchBusiness from "./actions/businessActions";
+import getListing from "./actions/listingActions";
 
 class UberallStatus extends React.Component {
   handleSearchSubmit = searchObj => {
-    uberallApiService.searchListings(
-      searchObj,
-      res => {
-        console.log(res);
-      },
-      err => {
-        console.log(err);
-      }
-    );
+    const { searchBusiness } = this.props;
+    searchBusiness(searchObj);
   };
 
   render() {
+    const {
+      businessReducer: { business }
+    } = this.props;
+
     return (
       <>
         <Header />
         <SearchForm handleSearchSubmit={this.handleSearchSubmit} />
         <p>Awesomeness is about to happen! Stay Tuned :)</p>
+        {business.id}
       </>
     );
   }
 }
 
-export default UberallStatus;
+export default connect(
+  ({ businessReducer, listingReducer }) => ({
+    businessReducer,
+    listingReducer
+  }),
+  { searchBusiness, getListing }
+)(UberallStatus);

@@ -5,10 +5,9 @@ const PUBLIC_KEY =
   "GNpPyrkYiTS5BV4F8XckW3kYurprwSk7cRG3Z4jOtrTTBceyfPveAOvDFk3mYY0ofundf";
 
 function searchBusiness(searchObj, onSuccess, onError) {
-  searchObj["public_key"] = PUBLIC_KEY;
   axios
-    .post(`${UBERALL_SERVER}/search`, searchObj)
-    .then(res => onSuccess(res.data.response.searchData))
+    .post(`${UBERALL_SERVER}/search?public_key=${PUBLIC_KEY}`, searchObj)
+    .then(onSuccess)
     .catch(onError);
 }
 
@@ -17,7 +16,7 @@ function getListing(id, token, directory, onSuccess, onError) {
 
   axios
     .get(`${UBERALL_SERVER}/search/${id}${params}`)
-    .then(res => onSuccess(res.data.response))
+    .then(onSuccess)
     .catch(onError);
 }
 
