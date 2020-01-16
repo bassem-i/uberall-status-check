@@ -1,10 +1,19 @@
 import React from "react";
 import Header from "./UI/Header";
 import SearchForm from "./UI/SearchForm";
+import uberallApiService from "./service/uberallApiService";
 
 class UberallStatus extends React.Component {
   handleSearchSubmit = searchObj => {
-    console.log(searchObj);
+    uberallApiService.searchListings(
+      searchObj,
+      res => {
+        console.log(res);
+      },
+      err => {
+        console.log(err);
+      }
+    );
   };
 
   render() {
