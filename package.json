@@ -2,6 +2,7 @@
   "name": "uberall-check",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://uberall-status-check.netlify.com/",
   "dependencies": {
     "antd": "^3.26.7",
     "axios": "^0.19.1",
