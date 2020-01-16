@@ -1,5 +1,5 @@
 import { LISTING_ACTIONS } from "./types";
-import uberallApiService from "../service/uberallApiService";
+import uberallApiService from "../service/apiService";
 import CountriesAndDirectories from "../assets/json/countries_and_directories";
 
 export default function getListing(business) {

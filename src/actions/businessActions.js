@@ -1,4 +1,4 @@
-import uberallApiService from "../service/uberallApiService";
+import uberallApiService from "../service/apiService";
 import { BUSINESS_ACTIONS } from "./types";
 
 export default function searchBusiness(searchObj) {
