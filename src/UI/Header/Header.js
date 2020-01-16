@@ -42,7 +42,7 @@ const HeaderStyled = styled.header`
 const Header = () => {
   return (
     <HeaderStyled>
-      <img src={require("../../assets/header.jpg")} alt="header"></img>
+      <img src={require("../../assets/images/header.jpg")} alt="header"></img>
       <div className="splash-overlay"></div>
       <div className="splash-content">
         <h1>Uberall</h1>
