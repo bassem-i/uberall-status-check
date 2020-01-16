@@ -1,3 +1,9 @@
 body {
   margin: 0;
 }
+
+.ant-spin {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+}

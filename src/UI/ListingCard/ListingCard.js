@@ -27,8 +27,8 @@ const ListingCard = ({
   syncStatus
 }) => (
   <Card>
-    <Descriptions bordered column={1}>
-      <Descriptions.Item label="Directory Type">
+    <Descriptions bordered column={2}>
+      <Descriptions.Item label="Directory Type" span={2}>
         {isValue(directoryType)}
       </Descriptions.Item>
       <Descriptions.Item label="Name">{isValue(name)}</Descriptions.Item>
@@ -38,7 +38,7 @@ const ListingCard = ({
       <Descriptions.Item label="Date Created">
         {moment(dateCreated).format("YYYY-M-D")}
       </Descriptions.Item>
-      <Descriptions.Item label="Sync Status">
+      <Descriptions.Item label="Sync Status" span={2}>
         {isValue(syncStatus)}
       </Descriptions.Item>
     </Descriptions>
