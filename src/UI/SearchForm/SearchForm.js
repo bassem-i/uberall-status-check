@@ -125,6 +125,7 @@ class SearchForm extends React.Component {
             ]
           })(
             <Input
+              type="number"
               prefix={<Icon type="code" style={{ color: "rgba(0,0,0,.25)" }} />}
               placeholder="ZIP code"
             />
