@@ -1,35 +1,17 @@
 import React from "react";
 import { Descriptions, Card } from "antd";
 import styled from "styled-components";
+import ListingCard from "../ListingCard";
 
-const BusinessCardStyled = styled.div``;
-
+const Padded = styled.div`
+  padding: 0 2rem;
+`;
 const BusinessInfo = ({ name, street, city, country }) => (
   <Descriptions bordered column={2}>
-    <Descriptions.Item label="name">{name}</Descriptions.Item>
-    <Descriptions.Item label="street">{street}</Descriptions.Item>
-    <Descriptions.Item label="city">{city}</Descriptions.Item>
-    <Descriptions.Item label="country">{country}</Descriptions.Item>
-  </Descriptions>
-);
-
-const ListingInfo = ({
-  name,
-  street,
-  phone,
-  website,
-  directoryType,
-  dateCreated,
-  syncStatus
-}) => (
-  <Descriptions bordered column={3}>
-    <Descriptions.Item label="name">{name}</Descriptions.Item>
-    <Descriptions.Item label="street">{street}</Descriptions.Item>
-    <Descriptions.Item label="phone">{phone}</Descriptions.Item>
-    <Descriptions.Item label="website">{website}</Descriptions.Item>
-    <Descriptions.Item label="directoryType">{directoryType}</Descriptions.Item>
-    <Descriptions.Item label="dateCreated">{dateCreated}</Descriptions.Item>
-    <Descriptions.Item label="syncStatus">{syncStatus}</Descriptions.Item>
+    <Descriptions.Item label="Name">{name}</Descriptions.Item>
+    <Descriptions.Item label="Street">{street}</Descriptions.Item>
+    <Descriptions.Item label="City">{city}</Descriptions.Item>
+    <Descriptions.Item label="Country">{country}</Descriptions.Item>
   </Descriptions>
 );
 
@@ -51,29 +33,32 @@ class BusinessCard extends React.Component {
     const { name, street, city, country } = business;
 
     return (
-      <BusinessCardStyled>
-        <Card bordered={false} title={business.name}>
+      <>
+        <Card bordered={false}>
           <BusinessInfo
-            country={country}
-            street={street}
-            city={city}
             name={name}
+            city={city}
+            street={street}
+            country={country}
           />
-          {listings.length > 0 &&
-            listings.map(({ result }) => (
-              <ListingInfo
-                key={result.listingId}
-                name={result.name}
-                street={result.street}
-                phone={result.phone}
-                website={result.website}
-                directoryType={result.directoryType}
-                dateCreated={result.dateCreated}
-                syncStatus={result.syncStatus}
-              />
-            ))}
+          {listings.length > 0 && (
+            <Padded>
+              {listings.map(({ result }) => (
+                <ListingCard
+                  key={result.listingId}
+                  name={result.name}
+                  street={result.street}
+                  phone={result.phone}
+                  website={result.website}
+                  directoryType={result.directoryType}
+                  dateCreated={result.dateCreated}
+                  syncStatus={result.syncStatus}
+                />
+              ))}
+            </Padded>
+          )}
         </Card>
-      </BusinessCardStyled>
+      </>
     );
   }
 }
