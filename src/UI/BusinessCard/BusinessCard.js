@@ -77,9 +77,9 @@ class BusinessCard extends React.Component {
           />
           {listings.length > 0 && (
             <Padded>
-              {listings.map(({ result }) => (
+              {listings.map(({ result }, i) => (
                 <ListingCard
-                  key={result.listingId}
+                  key={i}
                   name={result.name}
                   street={result.street}
                   phone={result.phone}
