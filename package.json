@@ -8,6 +8,7 @@
     "axios": "^0.19.1",
     "country-mapper": "^1.2.1",
     "countrynames": "^0.1.1",
+    "momentjs": "^2.0.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-redux": "^7.1.3",

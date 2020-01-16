@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Descriptions } from "antd";
+var moment = require("moment");
 
 const Card = styled.div`
   margin: 2rem 0;
@@ -35,7 +36,7 @@ const ListingCard = ({
       <Descriptions.Item label="Phone">{isValue(phone)}</Descriptions.Item>
       <Descriptions.Item label="Website">{isValue(website)}</Descriptions.Item>
       <Descriptions.Item label="Date Created">
-        {isValue(dateCreated)}
+        {moment(dateCreated).format("YYYY-M-D")}
       </Descriptions.Item>
       <Descriptions.Item label="Sync Status">
         {isValue(syncStatus)}

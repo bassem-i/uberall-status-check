@@ -2,16 +2,32 @@ import React from "react";
 import { Descriptions, Card } from "antd";
 import styled from "styled-components";
 import ListingCard from "../ListingCard";
+var moment = require("moment");
 
 const Padded = styled.div`
   padding: 0 2rem;
 `;
-const BusinessInfo = ({ name, street, city, country }) => (
+const BusinessInfo = ({
+  name,
+  dateCreated,
+  street,
+  streetNo,
+  city,
+  country,
+  province,
+  zip
+}) => (
   <Descriptions bordered column={2}>
     <Descriptions.Item label="Name">{name}</Descriptions.Item>
+    <Descriptions.Item label="Date">
+      {moment(dateCreated).format("YYYY-M-D")}
+    </Descriptions.Item>
     <Descriptions.Item label="Street">{street}</Descriptions.Item>
+    <Descriptions.Item label="Street number">{streetNo}</Descriptions.Item>
     <Descriptions.Item label="City">{city}</Descriptions.Item>
     <Descriptions.Item label="Country">{country}</Descriptions.Item>
+    <Descriptions.Item label="Province">{province}</Descriptions.Item>
+    <Descriptions.Item label="ZIP">{zip}</Descriptions.Item>
   </Descriptions>
 );
 
@@ -30,16 +46,29 @@ class BusinessCard extends React.Component {
       business,
       listingReducer: { listings }
     } = this.props;
-    const { name, street, city, country } = business;
+    const {
+      name,
+      dateCreated,
+      street,
+      streetNo,
+      city,
+      country,
+      province,
+      zip
+    } = business;
 
     return (
       <>
         <Card bordered={false}>
           <BusinessInfo
             name={name}
+            dateCreated={dateCreated}
             city={city}
             street={street}
+            streetNo={streetNo}
             country={country}
+            province={province}
+            zip={zip}
           />
           {listings.length > 0 && (
             <Padded>
